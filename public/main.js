@@ -3,17 +3,28 @@ $(document).ready(function() {
     var input = $('input');
     var messages = $('#messages');
     var notifications = $('#notifications');
-    var clientNum = $('#notifications');
+    var clientNumber = $('#clientCounter');
+    
 
     var addMessage = function(message) {
         messages.append('<div>' + message + '</div>');
     };
     
-    var notify = function(notification, clientNum){
+    var notify = function(notification){
         notifications.empty();
-        notifications.append('<div>' + notification + '</br>' + clientNum + '</div>').fadeIn(1500);
+        notifications.append('<div>' + notification + '</div>').fadeIn(1500);
         notifications.fadeOut(1500);
     };
+    
+    var clientCount = function(clientNum){
+        // clientNumber.empty();
+        clientNumber.append('<span>' + clientNum + '</span>');
+        console.log(clientNum);
+    }
+    
+    var name = function(name){
+        
+    }
 
     input.on('keydown', function(event) {
     if (event.keyCode != 13) {
@@ -28,6 +39,8 @@ $(document).ready(function() {
 
     
     
-socket.on('notification', notify, clientNum);
+socket.on('notification', notify);
 socket.on('message', addMessage);
+socket.on('connect', clientCount);
+socket.on('question', name);
 });

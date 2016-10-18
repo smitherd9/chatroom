@@ -11,12 +11,14 @@ html {
 }
 
 input[type='text'] {
+    position: fixed;
+    bottom: 10px;
     font-family: 'Creepster', cursive;
     font-size: 20px;
     border: solid 2px #d10000;
     transition: box-shadow 0.3s, border 0.3s;
     border-radius: 5px;
-    width: 24em;
+    width: 50%;
     height: 2.5em;
 }
 
@@ -29,12 +31,26 @@ input[type="text"]:focus {
 
 #messages {
     color: white;
+    width: 30%;
     font-size: 1.5em;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Creepster', cursive;
 }
 
 #notifications {
-    color: red;
-    font-size: 1em;
+    float: right;
+    margin-top: 20%;
+    margin-right: 5%;
+    color: white;
+    font-size: 1.5em;
     font-family: 'Creepster', cursive;
+}
+
+#clientCounter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    color: white;
+    font-family: 'Creepster', cursive;
+    font-size: 1.5em;
 }
