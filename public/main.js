@@ -2,9 +2,15 @@ $(document).ready(function() {
     var socket = io();
     var input = $('input');
     var messages = $('#messages');
+    var notifications = $('#notifications');
+    var clientNum = $('#notifications');
 
     var addMessage = function(message) {
         messages.append('<div>' + message + '</div>');
+    };
+    
+    var notify = function(notification, clientNum){
+        notifications.append('<div>' + notification + ' ' + clientNum + '</div>');
     };
 
     input.on('keydown', function(event) {
@@ -18,5 +24,8 @@ $(document).ready(function() {
     input.val('');
 });
 
+    
+    
+socket.on('notification', notify, clientNum);
 socket.on('message', addMessage);
 });
