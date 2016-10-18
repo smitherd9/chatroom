@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+html { 
+  background: url(hell-earth.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+input[type='text'] {
+    font-family: 'Creepster', cursive;
+    font-size: 20px;
+    border: solid 2px #d10000;
+    transition: box-shadow 0.3s, border 0.3s;
+    border-radius: 5px;
+    width: 24em;
+    height: 2.5em;
+}
+
+input[type="text"]:focus {
+    border: solid 4px #c90202;
+    box-shadow: 0 0 5px 1px #ce4a4a;
+}
+
+
+
+#messages {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Rock Salt', cursive;
+}
+
+#notifications {
+    color: red;
+    font-size: 1em;
+    font-family: 'Creepster', cursive;
+}

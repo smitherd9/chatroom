@@ -10,7 +10,9 @@ $(document).ready(function() {
     };
     
     var notify = function(notification, clientNum){
-        notifications.append('<div>' + notification + ' ' + clientNum + '</div>');
+        notifications.empty();
+        notifications.append('<div>' + notification + '</br>' + clientNum + '</div>').fadeIn(1500);
+        notifications.fadeOut(1500);
     };
 
     input.on('keydown', function(event) {
