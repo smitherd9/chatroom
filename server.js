@@ -15,31 +15,39 @@ io.on('connection', function (socket) {
     // var clientNum = 'There are now ' + io.engine.clientsCount + ' demons connected.';
     var clientNum = io.engine.clientsCount;
     var name = 'What is your name?';
+    var userLeft = 'A demon has returned to hell!';
+    // var srvSockets = io.sockets.sockets;
+    // var clientNum = Object.keys(srvSockets).length;
     console.log('Client connected');
     console.log(io.engine.clientsCount);
-    socket.emit('question', name);
-    // socket.broadcast.emit('connect', clientNum);
-    // io.emit('notification', newClient);
+    socket.emit('question', name);    
+    
     socket.broadcast.emit('notification', notify);
-    socket.broadcast.emit('connect', clientNum);
+    io.emit('newUser', clientNum);
+    
     
     
     socket.on('message', function(message) {
         console.log('Received message:', message);
         socket.broadcast.emit('message', message);
     });
+    
+    socket.on('disconnect', function(){
+        socket.broadcast.emit('notification', userLeft);
+        io.emit('newUser', io.engine.clientsCount);
+    });
 
 });
 
-io.sockets.on('connect', function(client) {
-    clients.push(client); 
+// io.sockets.on('connect', function(client) {
+//     clients.push(client); 
     
 
-    client.on('disconnect', function() {
-        clients.splice(clients.indexOf(client), 1);
+//     client.on('disconnect', function() {
+//         clients.splice(clients.indexOf(client), 1);
         
-    });
-});
+//     });
+// });
 
 server.listen(process.env.PORT || 8080);
 

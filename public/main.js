@@ -18,7 +18,7 @@ $(document).ready(function() {
     
     var clientCount = function(clientNum){
         // clientNumber.empty();
-        clientNumber.append('<span>' + clientNum + '</span>');
+       $('#number').html(clientNum);
         console.log(clientNum);
     }
     
@@ -41,6 +41,6 @@ $(document).ready(function() {
     
 socket.on('notification', notify);
 socket.on('message', addMessage);
-socket.on('connect', clientCount);
+socket.on('newUser', clientCount);
 socket.on('question', name);
 });
