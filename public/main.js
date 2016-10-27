@@ -22,9 +22,9 @@ $(document).ready(function() {
         console.log(clientNum);
     }
     
-    var name = function(name){
-        
-    }
+    // var name = function(name){
+    //     socket.emit('store', username)  // do this on form submit
+    // }
 
     input.on('keydown', function(event) {
     if (event.keyCode != 13) {
@@ -43,4 +43,6 @@ socket.on('notification', notify);
 socket.on('message', addMessage);
 socket.on('newUser', clientCount);
 socket.on('question', name);
+
+
 });

@@ -12,7 +12,6 @@ var user = {};
 
 io.on('connection', function (socket) {
     var notify = 'A new demon bursts forth!';
-    // var clientNum = 'There are now ' + io.engine.clientsCount + ' demons connected.';
     var clientNum = io.engine.clientsCount;
     var name = 'What is your name?';
     var userLeft = 'A demon has returned to hell!';
@@ -20,8 +19,7 @@ io.on('connection', function (socket) {
     // var clientNum = Object.keys(srvSockets).length;
     console.log('Client connected');
     console.log(io.engine.clientsCount);
-    socket.emit('question', name);    
-    
+    // socket.emit('question', name);    
     socket.broadcast.emit('notification', notify);
     io.emit('newUser', clientNum);
     
